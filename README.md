@@ -335,3 +335,5 @@ for (let i = 0; i < 3; i += 1) {
   gl.drawArrays(gl.POINTS, 0, 1);
 }
 ```
+
+See the [uniforms in action](https://evpozdniakov.github.io/WebGL-2.0/03.Uniforms/index.html) and check the [source files](https://github.com/evpozdniakov/WebGL-2.0/tree/main/03.Uniforms).
