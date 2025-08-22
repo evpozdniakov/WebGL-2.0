@@ -8,7 +8,7 @@ This is an outline of the ["WebGL 2.0" videos by Andrew Adamson](https://www.you
 
 The GPU must know the *precision* of each variable used in shaders, and it’s up to you to specify it.
 
-The precision can be one of three values: `lowp`, `mediump`, or `highp`:
+Precision can be set to one of three levels: `lowp`, `mediump`, or `highp`:
 - `lowp` – Better performance but lower rendering quality.
 - `mediump` – A good balance between performance and quality (default choice for many cases).
 - `highp` – Highest precision and quality, but can reduce performance.
@@ -62,7 +62,7 @@ While most developers think about precision mainly for floating-point types, int
 - In vertex shaders, `int` defaults to `highp`.
 - In fragment shaders, `int` defaults to `mediump`.
 
-This difference can cause *mismatched precision errors* if the same uniform is used in both shaders but relies on the default precision.
+This difference can lead to precision errors when the same *uniform* is used in both shaders but depends on the default precision. (Uniforms will be explained in more detail in the next chapter.)
 
 To avoid this, it is better to set individual precision for uniforms if they are used in both shaders.
 

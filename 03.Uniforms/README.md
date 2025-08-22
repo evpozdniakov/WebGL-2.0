@@ -12,7 +12,7 @@ You may ask yourself, what does "locate" mean in this context?
 
 ### Locating a uniform
 
-Shader code and JavaScript run in separate environments. The shader runs on the GPU, while JavaScript runs on the CPU. Just naming something in one place doesn’t automatically link it to the other. In WebGL, locating a uniform means asking the system where that variable actually lives in the shader program.
+Shader code and JavaScript run in separate environments. The shader runs on the GPU, while JavaScript runs on the CPU. Just naming something in one place doesn't automatically link it to the other. In WebGL, locating a uniform means asking the system where that variable actually lives in the shader program.
 
 So in our shader code we may declare and use our uniform `uColor` of type `vec4` like this:
 
@@ -87,7 +87,9 @@ Each function from above has its `v` version, when it expects only two parameter
 
 #### Usage
 
-Function like these can be used to set an array of single values. And each value can then be found in the program by index, which is also a uniform value. In the example below we set 3 colors, 3 sizes, 3 coords, and one index. In the draw call we will be able to change only our index to render a specific item.
+Function like these can be used to set an array of single values. And each value can then be found in the program by index. We can use uniform to set the index.
+
+In the example below we set 3 colors, 3 sizes, 3 coords, and one index. In the draw call we will be able to change only our index to render a specific item.
 
 Vertext shader
 
@@ -141,7 +143,7 @@ const coords = [
 const flatColors = colors.flat();
 const flatCoords = coords.flat();
 gl.uniform4fv(uColorLocation, flatColors);
-gl.uniform1fv(uSizeLocation, sizes); // `size` is already a flat array
+gl.uniform1fv(uSizeLocation, sizes); // `sizes` is already a flat array
 gl.uniform2fv(uCoordsLocation, flatCoords);
 
 // Finally render the dots

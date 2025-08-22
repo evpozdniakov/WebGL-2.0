@@ -22,7 +22,7 @@ This is easy, just add it into your page and give it some width and height. You 
 
 #### WebGL rendering context
 
-To get it you run the following command.
+To get it you need to run this code:
 
 ```js
 const canvas = document.getElementById('myCanvas');
@@ -62,7 +62,7 @@ Creating a shader is a procedure which consists of 4 steps:
 
 #### Creating Vertex shader
 
-The `vertexShaderSource` contains shader program code written in <abbr title="OpenGL Shading Language">GLSL</abbr>. You write it for your video card. It will understand and execute it.
+The `vertexShaderSource` contains shader program code written in OpenGL Shading Language (**GLSL**). You write it for your video card. It will understand and execute it.
 
 ```js
 const vertexShaderSource = `#version 300 es
@@ -79,7 +79,7 @@ gl.attachShader(program, vertexShader);
 
 #### Creating Fragment shader
 
-The `fragmentShaderSource` is also written in GLSL for your <abbr title="Graphics Processing Unit">GPU</abbr>.
+The `fragmentShaderSource` is also written in GLSL for your Graphics Processing Unit (**GPU**).
 
 ```js
 const fragmentShaderSource = `#version 300 es
