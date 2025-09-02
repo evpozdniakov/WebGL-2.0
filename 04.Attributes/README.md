@@ -189,3 +189,5 @@ Arguments explained:
 So here, `gl.TRIANGLES` means “every group of 3 vertices forms a triangle,”
 0 means “start from the beginning of the buffer,”
 and 3 means “read 3 vertices total.”
+
+See the [attributes in action](https://evpozdniakov.github.io/WebGL-2.0/04.Attributes/index.html) and check the [source files](https://github.com/evpozdniakov/WebGL-2.0/tree/main/04.Attributes).
