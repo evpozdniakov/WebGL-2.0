@@ -4,7 +4,7 @@ This is an outline of the ["WebGL 2.0" videos by Andrew Adamson](https://www.you
 
 [See all chapters](https://github.com/evpozdniakov/WebGL-2.0/blob/main/README.md)
 
-## 04.Attributes (Part 2)
+## 05.Attributes (Part 2)
 
 ### Default (fallback) value
 
