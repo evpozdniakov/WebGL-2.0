@@ -2,7 +2,7 @@
   /**
    * @type {HTMLCanvasElement}
    */
-  const canvas = document.querySelector('canvas#myCanvas3');
+  const canvas = document.querySelector('#myCanvas3');
   const gl = canvas.getContext('webgl2');
   
   const program = gl.createProgram();

@@ -25,7 +25,7 @@ This is easy, just add it into your page and give it some width and height. You 
 To get it you need to run this code:
 
 ```js
-const canvas = document.getElementById('myCanvas');
+const canvas = document.querySelector('#myCanvas');
 const gl = canvas.getContext('webgl2');
 ```
 
