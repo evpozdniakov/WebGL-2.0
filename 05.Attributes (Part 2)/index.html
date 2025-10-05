@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+    section {
+      margin: 16px;
+      display: flex;
+      gap: 16px;
+    }
+    canvas {
+      outline: 1px solid #eee;
+    }
+    code {
+      color: SaddleBrown;
+    }
+  </style>
+  <body>
+    <section>
+      <canvas width="200" height="200" id="myCanvas"></canvas>
+      <script src="main.js"></script>
+    </section>
+    <section>
+      <canvas width="200" height="200" id="myCanvas2"></canvas>
+      <div>
+        <p>Three buffers used, 105 bytes in total:</p>
+        <ul>
+          <li>Coords: <code>Float32Array</code> of 10 elements (40 bytes)</li>
+          <li>Point sizes: <code>Uint8Array</code> of 5 elements (5 bytes)</li>
+          <li>Colors: <code>Float32Array</code> of 15 elements (60 bytes)</li>
+        </ul>
+      </div>
+      <script src="main2.js"></script>
+    </section>
+    <section>
+      <canvas width="200" height="200" id="myCanvas3"></canvas>
+      <div>
+        <p>Three buffers used, 40 bytes in total:</p>
+        <ul>
+          <li>Coords: <code>Int16Array</code> of 10 elements (20 bytes)</li>
+          <li>Point sizes: <code>Uint8Array</code> of 5 elements (5 bytes)</li>
+          <li>Colors: <code>Uint8Array</code> of 15 elements (15 bytes)</li>
+        </ul>
+      </div>
+      <script src="main3.js"></script>
+    </section>
+    <section>
+      <canvas width="200" height="200" id="myCanvas4"></canvas>
+      <div>
+        <p>Buffers are the same as above, but different types are used for attributes in the shader (just to demo <code>vertexAttribIPointer</code>).</p>
+        <ul>
+          <li>Point sizes: <code>uint</code></li>
+          <li>Colors: <code>uvec3</code></li>
+        </ul>
+      </div>
+      <script src="main4.js"></script>
+    </section>
+    <section>
+      <canvas width="200" height="200" id="myCanvas5"></canvas>
+      <div>
+        <p><code>DataView</code> used to pack all the data in a single buffer of 40 bytes.</p>
+      </div>
+      <script src="main5.js"></script>
+    </section>
+  </body>
+</html>
