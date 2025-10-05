@@ -124,4 +124,4 @@ But unfortunately we cannot do the same with `gl.drawElements()`.
 
 If you are lucky and your data is simple and highly repetitive, then `gl.drawElements()` is defenitely a function that you wants to use.
 
-See the [Element Arrays in action](https://evpozdniakov.github.io/WebGL-2.0/06.Element%20Arrays%20&%20drawElements()/index.html) and check the [source files](https://github.com/evpozdniakov/WebGL-2.0/tree/main/06.Element%20Arrays%20&%20drawElements()).
+See the [Element Arrays in action](https://evpozdniakov.github.io/WebGL-2.0/06.Element%20Arrays%20%26%20drawElements()/index.html) and check the [source files](https://github.com/evpozdniakov/WebGL-2.0/tree/main/06.Element%20Arrays%20%26%20drawElements()).
