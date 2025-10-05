@@ -121,3 +121,5 @@ Use this method when the attribute type in your shader is an **integer type** â€
 In other words, use `vertexAttribIPointer` when your GLSL attribute **expects integer values**, not simply when your buffer happens to contain integer data.
 
 If the attribute in GLSL is a **floating-point type** (`float`, `vec*`), you should use `vertexAttribPointer` instead â€” even if your buffer stores integers. In that case, WebGL can automatically convert or normalize the values as needed.
+
+See the [attributes in action](https://evpozdniakov.github.io/WebGL-2.0/05.Attributes%20(Part%202)/index.html) and check the [source files](https://github.com/evpozdniakov/WebGL-2.0/tree/main/05.Attributes%20(Part%202)).
