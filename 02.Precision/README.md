@@ -6,7 +6,7 @@ This is an outline of the ["WebGL 2.0" videos by Andrew Adamson](https://www.you
 
 ## 02.Precision
 
-The GPU must know the *precision* of each variable used in shaders, and it’s up to you to specify it.
+The GPU must know the *precision* of each variable used in shaders, and it's up to you to specify it.
 
 Precision can be set to one of three levels: `lowp`, `mediump`, or `highp`:
 - `lowp` – Better performance but lower rendering quality.
@@ -47,7 +47,7 @@ Individual precision gives you more control and is useful when different variabl
 
 In most cases, default precision is already set for all types in both vertex and fragment shaders.
 
-The *exception* is the `float` type in fragment shaders—for these, setting a precision is **mandatory**. If you don’t specify it, the shader will fail to compile and WebGL will throw an error.
+The *exception* is the `float` type in fragment shaders—for these, setting a precision is **mandatory**. If you don't specify it, the shader will fail to compile and WebGL will throw an error.
 
 At a minimum, you should include this in your fragment shader:
 

@@ -124,7 +124,7 @@ Up to now we have:
 - attribute locations
 - a single buffer with all the data
 
-To the GPU, that buffer is just a flat list of numbers. It doesn’t know which bytes are
+To the GPU, that buffer is just a flat list of numbers. It doesn't know which bytes are
 *coordinates* vs *color* vs *point size*. We use `vertexAttribPointer` to describe the
 layout of that data **for each attribute**. This is the most interesting part but also the most complicated.
 
