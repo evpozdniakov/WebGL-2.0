@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+    section {
+      margin: 16px;
+      display: flex;
+      gap: 16px;
+    }
+    canvas {
+      outline: 1px solid #eee;
+    }
+    code {
+      color: SaddleBrown;
+    }
+  </style>
+  <body>
+    <section>
+      <canvas width="200" height="200" id="myCanvas"></canvas>
+      <div>
+        <p>Drawing a pentagon with <code>gl.drawArrays()</code> method.</p>
+      </div>
+      <script src="main.js"></script>
+    </section>
+    <section>
+      <canvas width="200" height="200" id="myCanvas2"></canvas>
+      <div>
+        <p>Drawing a pentagon with <code>gl.drawElements()</code> method.</p>
+      </div>
+      <script src="main2.js"></script>
+    </section>
+    <section>
+      <canvas width="200" height="200" id="myCanvas3"></canvas>
+      <div>
+        <p>Drawing a colored pentagon with <code>gl.drawArrays()</code> method.</p>
+      </div>
+      <script src="main3.js"></script>
+    </section>
+    <section>
+      <canvas width="200" height="200" id="myCanvas4"></canvas>
+      <div>
+        <p>Drawing a colored pentagon with <code>gl.drawElements()</code> method.</p>
+      </div>
+      <script src="main4.js"></script>
+    </section>
+  </body>
+</html>
