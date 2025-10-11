@@ -20,7 +20,49 @@
   <body>
     <section>
       <canvas width="200" height="200" id="myCanvas"></canvas>
+      <div>
+        <p>Mipmaps generated automatically.</p>
+      </div>
       <script src="main.js"></script>
+    </section>
+    <section>
+      <canvas width="200" height="200" id="myCanvas2"></canvas>
+      <div>
+        <p>The above result can be achieved with two settings:</p>
+        <ul>
+          <li><code>gl.TEXTURE_MIN_FILTER</code> set to <code>gl.LINEAR</code></li>
+          <li><code>gl.TEXTURE_MAG_FILTER</code> set to <code>gl.LINEAR</code></li>
+        </ul>
+      </div>
+      <script src="main2.js"></script>
+    </section>
+    <section>
+      <canvas width="200" height="200" id="myCanvas3"></canvas>
+      <div>
+        <p>Pixels aren't blended thanks to <code>gl.TEXTURE_MAG_FILTER</code> set to <code>gl.NEAREST</code></p>
+      </div>
+      <script src="main3.js"></script>
+    </section>
+    <section>
+      <canvas width="200" height="200" id="myCanvas4"></canvas>
+      <div>
+        <p>Pixels are flipped vertically thanks to <code>gl.UNPACK_FLIP_Y_WEBGL</code> set to <code>true</code></p>
+      </div>
+      <script src="main4.js"></script>
+    </section>
+    <section>
+      <canvas width="200" height="200" id="myCanvas5"></canvas>
+      <div>
+        <p>An image used for the texture (loaded asynchronously).</p>
+      </div>
+      <script src="main5.js"></script>
+    </section>
+    <section>
+      <canvas width="200" height="200" id="myCanvas6"></canvas>
+      <div>
+        <p>Two textures showcase.</p>
+      </div>
+      <script src="main6.js"></script>
     </section>
   </body>
 </html>

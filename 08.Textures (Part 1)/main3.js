@@ -2,7 +2,7 @@
   /**
    * @type {HTMLCanvasElement}
    */
-  const canvas = document.querySelector('#myCanvas');
+  const canvas = document.querySelector('#myCanvas3');
   const gl = canvas.getContext('webgl2');
 
   const program = gl.createProgram();
@@ -77,6 +77,8 @@
   const texture = gl.createTexture();
   gl.bindTexture(gl.TEXTURE_2D, texture);
   gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, 4, 4, 0, gl.RGB, gl.UNSIGNED_BYTE, pixels);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
   gl.generateMipmap(gl.TEXTURE_2D);
 
   gl.drawArrays(gl.TRIANGLES, 0, 3);

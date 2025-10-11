@@ -2,7 +2,7 @@
   /**
    * @type {HTMLCanvasElement}
    */
-  const canvas = document.querySelector('#myCanvas');
+  const canvas = document.querySelector('#myCanvas6');
   const gl = canvas.getContext('webgl2');
 
   const program = gl.createProgram();
@@ -25,12 +25,17 @@
 
   const fragmentShaderSource = (
     `#version 300 es
+    precision mediump float;
     in mediump vec2 vTextureCoords;
-    uniform sampler2D uSampler;
+    uniform sampler2D uPixelSampler;
+    uniform sampler2D uKittenSampler;
+    uniform mediump float uMultiplyFactor;
     out mediump vec4 fragColor;
     void main()
     {
-      fragColor = texture(uSampler, vTextureCoords);
+      vec4 image1 = texture(uPixelSampler, vTextureCoords) * uMultiplyFactor;
+      vec4 image2 = texture(uKittenSampler, vTextureCoords) * (1.0 - uMultiplyFactor);
+      fragColor = image1 + image2;
     }`
   );
   const fragmentShader = gl.createShader(gl.FRAGMENT_SHADER);
@@ -74,10 +79,45 @@
     230,190,255,       154,99,36,        255,250,200,      0,0,0,
   ]);
 
+  const pixelTextureUnit = 1;
+  gl.activeTexture(gl.TEXTURE0 + pixelTextureUnit);
+  const uPixelSamplerLocation = gl.getUniformLocation(program, 'uPixelSampler');
+  gl.uniform1i(uPixelSamplerLocation, pixelTextureUnit)
+
   const texture = gl.createTexture();
   gl.bindTexture(gl.TEXTURE_2D, texture);
+  gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
   gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, 4, 4, 0, gl.RGB, gl.UNSIGNED_BYTE, pixels);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
   gl.generateMipmap(gl.TEXTURE_2D);
 
-  gl.drawArrays(gl.TRIANGLES, 0, 3);
+  new Promise((resolve) => {
+    const img = new Image();
+    img.crossOrigin = "anonymous";
+    img.addEventListener('load', () => resolve(img));
+    img.src = 'https://raw.githubusercontent.com/evpozdniakov/WebGL-2.0/refs/heads/main/08.Textures%20(Part%201)/kitten.jpeg';
+  }).then((kittenImage) => {
+    const kittenTextureUnit = 5;
+    gl.activeTexture(gl.TEXTURE0 + kittenTextureUnit);
+    const uKittenSamplerLocation = gl.getUniformLocation(program, 'uKittenSampler');
+    gl.uniform1i(uKittenSamplerLocation, kittenTextureUnit)
+  
+    const textureKitten = gl.createTexture();
+    gl.bindTexture(gl.TEXTURE_2D, textureKitten);
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, 259, 194, 0, gl.RGB, gl.UNSIGNED_BYTE, kittenImage);
+    gl.generateMipmap(gl.TEXTURE_2D);
+  
+    const uMultiplyFactorLocation = gl.getUniformLocation(program, 'uMultiplyFactor');
+  
+    const runDrawCall = () => {
+      const uMultiplyFactor = Math.sin(Date.now() / 1000) * 0.5 + 0.5;
+      gl.uniform1f(uMultiplyFactorLocation, uMultiplyFactor);
+      gl.drawArrays(gl.TRIANGLES, 0, 3);
+    }
+  
+    setInterval(() => {
+      runDrawCall();
+    }, 10);
+  })
 })();
