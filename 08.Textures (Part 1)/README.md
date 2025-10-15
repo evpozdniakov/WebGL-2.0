@@ -275,3 +275,5 @@ gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
 ```
 
 Common values are `gl.NEAREST` (nearest-neighbor sampling for a sharp, pixelated look) and `gl.LINEAR` (smooth interpolation between pixels).
+
+See the [Textures in action](https://evpozdniakov.github.io/WebGL-2.0/08.Textures%20(Part%201)/index.html) and check the [source files](https://github.com/evpozdniakov/WebGL-2.0/tree/main/08.Textures%20(Part%201)).
