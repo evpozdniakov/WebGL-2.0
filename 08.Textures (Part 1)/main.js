@@ -9,7 +9,7 @@
 
   const vertexShaderSource = (
     `#version 300 es
-    layout(location = 0) in mediump vec2 aCoords;
+    layout(location = 0) in highp vec2 aCoords;
     layout(location = 1) in mediump vec2 aTextureCoords;
     out mediump vec2 vTextureCoords;
     void main()

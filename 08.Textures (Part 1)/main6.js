@@ -106,6 +106,8 @@
     const textureKitten = gl.createTexture();
     gl.bindTexture(gl.TEXTURE_2D, textureKitten);
     gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, 259, 194, 0, gl.RGB, gl.UNSIGNED_BYTE, kittenImage);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
     gl.generateMipmap(gl.TEXTURE_2D);
   
     const uMultiplyFactorLocation = gl.getUniformLocation(program, 'uMultiplyFactor');
