@@ -218,7 +218,7 @@ Loading an image is an *asynchronous process*. We need to make our code asynchro
 const loadImage = () => new Promise((resolve) => {
   const img = new Image();
   img.addEventListener('load', () => resolve(img));
-  img.crossOrigin = 'unonimous'; // this line isn't needed if you use local server
+  img.crossOrigin = 'anonymous'; // this line isn't needed if you use local server
   img.src = 'https://raw.githubusercontent.com/evpozdniakov/WebGL-2.0/refs/heads/main/08.Textures%20(Part%201)/kitten.jpeg';
 });
 

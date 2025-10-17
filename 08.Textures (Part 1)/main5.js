@@ -69,7 +69,7 @@
 
   const loadImage = () => new Promise((resolve) => {
     const img = new Image();
-    img.crossOrigin = 'unonimous';
+    img.crossOrigin = 'anonymous';
     img.addEventListener('load', () => resolve(img));
     img.src = 'https://raw.githubusercontent.com/evpozdniakov/WebGL-2.0/refs/heads/main/08.Textures%20(Part%201)/kitten.jpeg';
   });
