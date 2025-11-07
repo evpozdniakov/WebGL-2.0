@@ -9,18 +9,214 @@
       margin: 16px;
       display: flex;
       gap: 16px;
+      align-items: flex-start;
     }
     canvas {
       outline: 1px solid #eee;
+      background: #eee;
+    }
+    section > div > p:first-child {
+      margin-top: 0;
     }
     code {
       color: SaddleBrown;
     }
+    label {
+      display: flex;
+      align-items: center;
+      gap: 0.25em;
+    }
+    .no-style {
+      list-style-type: none;
+      padding-left: 0;
+    }
   </style>
+  <script src="./gl-matrix-min.js"></script>
+  <script>
+    function makeSeededPRNG(seed) {
+      let s = seed % 2147483647;
+      if (s <= 0) s += 2147483646;
+
+      return function() {
+        s = (s * 16807) % 2147483647;
+        return (s - 1) / 2147483646;
+      };
+    }
+  </script>
   <body>
     <section>
       <canvas width="200" height="200" id="myCanvas"></canvas>
+      <div>
+        <p>Texture to use:</p>
+        <ul class="no-style">
+          <li>
+            <label>
+              <input type="radio" name="texture" value="grid" checked>
+              Grid
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="texture" value="image">
+              Image
+            </label>
+          </li>
+        </ul>
+        <p>Minification filter:</p>
+        <ul class="no-style" style="columns: 2">
+          <li>
+            <label>
+            <input type="radio" name="minFilter" value="LINEAR_MINMAP_LINEAR" checked>
+            <code>gl.LINEAR_MINMAP_LINEAR</code>
+          </label>
+          </li>
+          <li>
+            <label>
+            <input type="radio" name="minFilter" value="LINEAR_MINMAP_NEAREST">
+            <code>gl.LINEAR_MINMAP_NEAREST</code>
+          </label>
+          </li>
+          <li>
+            <label>
+            <input type="radio" name="minFilter" value="NEAREST_MINMAP_LINEAR">
+            <code>gl.NEAREST_MINMAP_LINEAR</code>
+          </label>
+          </li>
+          <li>
+            <label>
+            <input type="radio" name="minFilter" value="NEAREST_MINMAP_NEAREST">
+            <code>gl.NEAREST_MINMAP_NEAREST</code>
+          </label>
+          </li>
+        </ul>
+        <p>
+          <label>
+            <input type="checkbox" name="colorfulLevels">
+            Colorful texture levels
+          </label>
+        </p>
+      </div>
       <script src="main.js"></script>
+    </section>
+    <section>
+      <canvas width="200" height="200" id="myCanvas2"></canvas>
+      <div>
+        <p>
+          <label>
+            Speed:
+            <input type="range" name="speed" min="0" max="4" value="1" step="0.1">
+          </label>
+        </p>
+        <p>Minification filter:</p>
+        <ul class="no-style" style="columns: 2">
+          <li>
+            <label>
+            <input type="radio" name="minFilter2" value="LINEAR_MINMAP_LINEAR" checked>
+            <code>gl.LINEAR_MINMAP_LINEAR</code>
+          </label>
+          </li>
+          <li>
+            <label>
+            <input type="radio" name="minFilter2" value="LINEAR_MINMAP_NEAREST">
+            <code>gl.LINEAR_MINMAP_NEAREST</code>
+          </label>
+          </li>
+          <li>
+            <label>
+            <input type="radio" name="minFilter2" value="NEAREST_MINMAP_LINEAR">
+            <code>gl.NEAREST_MINMAP_LINEAR</code>
+          </label>
+          </li>
+          <li>
+            <label>
+            <input type="radio" name="minFilter2" value="NEAREST_MINMAP_NEAREST">
+            <code>gl.NEAREST_MINMAP_NEAREST</code>
+          </label>
+          </li>
+        </ul>
+        <p>
+          <label>
+            <input type="checkbox" name="no-cactuses">
+            No cactuses
+          </label>
+        </p>
+      </div>
+      <script src="main2.js"></script>
+    </section>
+    <section>
+      <canvas width="200" height="200" id="myCanvas3"></canvas>
+      <div>
+        <p>Texture to use:</p>
+        <ul class="no-style">
+          <li>
+            <label>
+              <input type="radio" name="gridOrPixels" value="pixels" checked>
+              Checkered pattern
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="gridOrPixels" value="grid">
+              Grid
+            </label>
+          </li>
+        </ul>
+        <p>
+          <label>
+            Repeat X:
+            <input type="range" name="repeat-x" min="1" max="7" value="4" step="0.1">
+          </label>
+        </p>
+        <p>
+          <label>
+            Repeat Y:
+            <input type="range" name="repeat-y" min="1" max="7" value="4" step="0.1">
+          </label>
+        </p>
+        <p>Minification filter:</p>
+        <ul class="no-style" style="columns: 2">
+          <li>
+            <label>
+            <input type="radio" name="minFilter3" value="LINEAR_MINMAP_LINEAR" checked>
+            <code>gl.LINEAR_MINMAP_LINEAR</code>
+          </label>
+          </li>
+          <li>
+            <label>
+            <input type="radio" name="minFilter3" value="LINEAR_MINMAP_NEAREST">
+            <code>gl.LINEAR_MINMAP_NEAREST</code>
+          </label>
+          </li>
+          <li>
+            <label>
+            <input type="radio" name="minFilter3" value="NEAREST_MINMAP_LINEAR">
+            <code>gl.NEAREST_MINMAP_LINEAR</code>
+          </label>
+          </li>
+          <li>
+            <label>
+            <input type="radio" name="minFilter3" value="NEAREST_MINMAP_NEAREST">
+            <code>gl.NEAREST_MINMAP_NEAREST</code>
+          </label>
+          </li>
+        </ul>
+        <p>Magnification filter:</p>
+        <ul class="no-style" style="columns: 2">
+          <li>
+            <label>
+            <input type="radio" name="magFilter" value="NEAREST" checked>
+            <code>gl.NEAREST</code>
+          </label>
+          </li>
+          <li>
+            <label>
+            <input type="radio" name="magFilter" value="LINEAR">
+            <code>gl.LINEAR</code>
+          </label>
+          </li>
+        </ul>
+      </div>
+      <script src="main3.js"></script>
     </section>
   </body>
 </html>
