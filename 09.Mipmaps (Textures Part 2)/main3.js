@@ -180,8 +180,12 @@
   }
   setMagFilter();
   document.querySelectorAll('[name=magFilter]').forEach(i => i.addEventListener('change', render));
-
-  document.querySelectorAll('input[name=gridOrPixels]').forEach((input) => input.addEventListener('change', render));
+  document.querySelectorAll('input[name=gridOrPixels]').forEach((input) => input.addEventListener('change', () => {
+    document.querySelectorAll('input[name=minFilter3]').forEach((i) => {
+      i.disabled = !useGridInput.checked;
+    });
+    render();
+  }));
 
   /**
    * @type {HTMLInputElement}
@@ -209,17 +213,6 @@ function white() {
 
 function black() {
   return [0, 0, 0];
-}
-
-function loadImage(src) {
-  return new Promise((resolve) => {
-    const image = new Image();
-    image.addEventListener('load', () => {
-      resolve(image);
-    });
-    image.crossOrigin = 'anonymous';
-    image.src = src;
-  })
 }
 
 function getGridImage() {
