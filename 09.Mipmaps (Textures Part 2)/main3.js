@@ -43,11 +43,10 @@
   const pixelTexture = gl.createTexture();
   gl.bindTexture(gl.TEXTURE_2D, pixelTexture);
   const pixelTextureData = new Uint8Array([
-    ...white(), ...black(),
     ...black(), ...white(),
+    ...white(), ...black(),
   ]);
   gl.pixelStorei(gl.UNPACK_ALIGNMENT, 1);
-  gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
   gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, 2, 2, 0, gl.RGB, gl.UNSIGNED_BYTE, pixelTextureData);
   gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.REPEAT);
   gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.REPEAT);
