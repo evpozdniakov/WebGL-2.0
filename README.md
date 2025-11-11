@@ -15,3 +15,5 @@ This is an outline of the ["WebGL 2.0" videos by Andrew Adamson](https://www.you
 ## [06.Element Arrays & drawElements()](https://github.com/evpozdniakov/WebGL-2.0/blob/main/06.Element%20Arrays%20%26%20drawElements()/README.md)
 
 ## [08.Textures (Part 1)](https://github.com/evpozdniakov/WebGL-2.0/blob/main/08.Textures%20(Part%201)/README.md)
+
+## [09.Mipmaps (Textures Part 2)](https://github.com/evpozdniakov/WebGL-2.0/blob/main/09.Mipmaps%20(Textures%20Part%202)/README.md)
